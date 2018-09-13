@@ -1,0 +1,51 @@
+#include "melody.hpp" 
+
+void melody::play(note_player & p ){
+	p.play( note{ note::A4, note::dQ } );
+	p.play( note{ note::F4, note::dF } );
+	p.play( note{ note::C4, note::dH } );
+	p.play( note{ note::D4, note::dH } );
+	p.play( note{ note::F4, note::dQ } );
+	p.play( note{ note::F4, note::dQ } );
+	p.play( note{ note::D4, note::dH } );
+	p.play( note{ note::C4, note::dQ } );
+	p.play( note{ note::F4, note::dQ } );
+	p.play( note{ note::F4, note::dQ } );
+	p.play( note{ note::C5, note::dQ } );
+	p.play( note{ note::A4, note::dF } );
+	p.play( note{ note::G4, note::dQ } );
+	p.play( note{ note::P, note::dQ } );
+	p.play( note{ note::A4, note::dQ } );
+	p.play( note{ note::F4, note::dF } );
+	p.play( note{ note::C4, note::dH } );
+	p.play( note{ note::D4, note::dH } );
+	p.play( note{ note::F4, note::dQ } );
+	p.play( note{ note::F4, note::dQ } );
+	p.play( note{ note::D4, note::dH } );
+	p.play( note{ note::C4, note::dQ } );
+	p.play( note{ note::F4, note::dQ } );
+	p.play( note{ note::A4s, note::dH } );
+	p.play( note{ note::A4, note::dH } );
+	p.play( note{ note::G4, note::dH } );
+	p.play( note{ note::F4, note::dQ } );
+	p.play( note{ note::P, note::dQ } );
+	p.play( note{ note::A4, note::dF } );
+	p.play( note{ note::F4, note::dF } );
+	p.play( note{ note::C4, note::dQ } );
+	p.play( note{ note::A4, note::dF } );
+	p.play( note{ note::F4, note::dQ } );
+	p.play( note{ note::G4s, note::dH } );
+	p.play( note{ note::F4, note::dH } );
+	p.play( note{ note::C4, note::dQ } );
+	p.play( note{ note::G4s, note::dF } );
+	p.play( note{ note::G4, note::dQ } );
+	p.play( note{ note::P, note::dQ } );
+	p.play( note{ note::A4, note::dF } );
+	p.play( note{ note::F4, note::dF } );
+	p.play( note{ note::C4, note::dQ } );
+	p.play( note{ note::A4, note::dF } );
+	p.play( note{ note::F4, note::dQ } );
+	p.play( note{ note::G4s, note::dH } );
+	p.play( note{ note::F4, note::dH } );
+	p.play( note{ note::C4, note::dQ } );
+}

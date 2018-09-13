@@ -1,5 +1,17 @@
 #pragma once
-#include "hwlib.hpp"
+
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
+#include <istream>
+#include <iterator>
+#include <numeric>
+#include <algorithm>
+
+
+
 
 class note_player_pc
 {
