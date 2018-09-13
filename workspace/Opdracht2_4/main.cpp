@@ -13,7 +13,7 @@ const char* Toxicity = "Toxicity:d=4,o=5,b=125:g,8p,16g,16g,8d#.,16c,g,8p,16g,16
 const char* FUR_ELISE = "FurElise:d=8,o=5,b=125:32p,e6,d#6,e6,d#6,e6,b,d6,c6,4a.,32p,c,e,a,4b.,32p,e,g#,b,4c.6,32p,e,e6,d#6,e6,d#6,e6,b,d6,c6,4a.,32p,c,e,a,4b.,32p,d,c6,b,2a";
 
 
-int main( void ){	
+int main( int arc, char *argv[] ){	
 
 
 	note_player_pc pcPlayer;

@@ -21,6 +21,7 @@
   <Dependencies/>
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
+    <File Name="converter.cpp"/>
     <File Name="note_player.cpp"/>
     <File Name="note_player.hpp"/>
   </VirtualDirectory>

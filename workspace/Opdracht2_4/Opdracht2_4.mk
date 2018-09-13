@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-32/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=D:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/note_player.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/converter.cpp$(ObjectSuffix) $(IntermediateDirectory)/note_player.cpp$(ObjectSuffix) 
 
 
 
@@ -100,6 +100,14 @@ $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
+
+$(IntermediateDirectory)/converter.cpp$(ObjectSuffix): converter.cpp $(IntermediateDirectory)/converter.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "D:/Documents-(D)/HBO-ICT/git/HBO-ICT/Jaar4/C++ Herkansing/TCTI-V2CPSE1-16/workspace/Opdracht2_4/converter.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/converter.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/converter.cpp$(DependSuffix): converter.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/converter.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/converter.cpp$(DependSuffix) -MM converter.cpp
+
+$(IntermediateDirectory)/converter.cpp$(PreprocessSuffix): converter.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/converter.cpp$(PreprocessSuffix) converter.cpp
 
 $(IntermediateDirectory)/note_player.cpp$(ObjectSuffix): note_player.cpp $(IntermediateDirectory)/note_player.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "D:/Documents-(D)/HBO-ICT/git/HBO-ICT/Jaar4/C++ Herkansing/TCTI-V2CPSE1-16/workspace/Opdracht2_4/note_player.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/note_player.cpp$(ObjectSuffix) $(IncludePath)
