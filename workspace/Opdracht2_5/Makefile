@@ -17,14 +17,13 @@ HEADERS := note.hpp note_player_gpio.hpp rtttl_player.hpp melody.hpp
 SEARCH  := ../w1-library
 
 
-#melody.cpp : converter.exe Makefile
-#	converter.exe "Computer Games - Super Mario Brothers 1.txt"
+converter.o : converter.cpp
+	g++ -std=c++11 -c converter.cpp -o converter.o 
 
 converter.exe : converter.o
-	gcc converter.o -o converter.exe
+	g++ converter.o -o converter.exe 
 	
-converter.o : converter.cpp
-	gcc -c converter.cpp -o converter.o
+
 
 
 

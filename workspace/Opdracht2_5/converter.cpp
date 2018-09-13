@@ -9,7 +9,7 @@ void write_cpp(const char* s)
 {
 	
 	std::ofstream myFile;
-	myFile.open("../../w1-library/melody.cpp");
+	myFile.open("../w1-library/melody.cpp");
 	
 	if(!myFile.is_open())
 	{
