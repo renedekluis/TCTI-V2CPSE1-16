@@ -25,7 +25,6 @@ void note_player_pc::play_tune(const char* s)
 
 
 
-
 void note_player_pc::write_cpp(const char* s)
 {
 	
@@ -79,7 +78,7 @@ void note_player_pc::write_cpp(const char* s)
 		else if(valuePart==1) 	
 		{
 			if(s[strIdx] >= '0' && s[strIdx]<='9')
-				stdOctave+=s[strIdx]-1;
+				stdOctave+=s[strIdx];
 		}
 		else 
 			beat+=s[strIdx];
@@ -114,7 +113,7 @@ void note_player_pc::write_cpp(const char* s)
 			}
 			
 			
-			
+			bool needPause = false;
 			std::string filteredNote = "";
 			for(int i =0; i < strNote.size();i++)
 			{
@@ -127,13 +126,7 @@ void note_player_pc::write_cpp(const char* s)
 				}
 				if(strNote[i]=='_')
 				{
-					if(filteredNote[0]=='A')
-						filteredNote = "G"+oct+"s";
-					else
-					{
-						filteredNote[0]-=1;
-						filteredNote+='s';
-					}
+					needPause=true;
 				}
 				if(strNote[i]=='#')
 				{
@@ -149,22 +142,23 @@ void note_player_pc::write_cpp(const char* s)
 			std::string convertedDuration = "";
 			
 			int tempDur = std::stoi(stdDuration);
-			//intDur/=tempDur;
+			intDur*=2;
 			std::cout << intDur << std::endl;
 			if(intDur <= tempDur)
-				convertedDuration = "dQ";
-			else if(intDur == tempDur*2)
-				convertedDuration = "dQ";
-			else if(intDur == tempDur*4)
-				convertedDuration = "dH";
-			else
 				convertedDuration = "dF";
+			else if(intDur == tempDur*2)
+				convertedDuration = "dH";
+			else if(intDur == tempDur*4)
+				convertedDuration = "dQ";
+			else
+				convertedDuration = "dQH";
 				
 				
 			if(filteredNote.size()==1 && filteredNote!="P")
 				filteredNote+=stdOctave;
 			myFile << "\tp.play( note{ note::"<<filteredNote<< ", note::"<<convertedDuration<<" } );\n";
-			
+			if(needPause)
+				myFile << "\tp.play( note{ note::P, note::"<<convertedDuration<<" } );\n";
 			
 			dur="";
 			strNote="";
