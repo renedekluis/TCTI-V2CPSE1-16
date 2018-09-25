@@ -13,13 +13,17 @@ SEARCH  := ../w1-library
 RELATIVE := $(RELATIVE)../
 include $(RELATIVE)Makefile.due
 
-.PHONY: build clean
 
-build : converter.exe 
+.PHONY: build 
+
+build : melody.cpp
+
+melody.cpp: Makefile converter.exe
+	converter.exe "Computer Games - Super Mario Brothers 1.txt"
+	
 
 converter.exe : converter.cpp
 	g++ converter.cpp -o converter.exe
-	
 
 	
 

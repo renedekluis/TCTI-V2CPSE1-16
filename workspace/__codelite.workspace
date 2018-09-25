@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="example code" Database="" Version="10.0.0">
-  <Project Name="Opdracht2_3" Path="Opdracht2_3/_codelite.project" Active="Yes"/>
+  <Project Name="Opdracht2_3" Path="Opdracht2_3/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="Opdracht2_3" ConfigName="Release"/>
@@ -10,6 +10,36 @@
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="Opdracht2_4" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+  <Project Name="Opdracht2_5" Path="Opdracht2_5/_codelite.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Opdracht2_5" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+  <Project Name="Opdracht2_6" Path="Opdracht2_6/_codelite.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Opdracht2_6" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+  <Project Name="Opdracht2_7" Path="Opdracht2_7/_codelite.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Opdracht2_7" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+  <Project Name="Opdracht3" Path="Opdracht3/_codelite.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Opdracht3" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+  <Project Name="Opdracht4" Path="Opdracht4/_codelite.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Opdracht4" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
   <Project Name="w1-demo" Path="w1-demo/_codelite.project" Active="No"/>

@@ -30,7 +30,7 @@ void write_cpp(const char* s)
 		title += s[strIdx];
 		strIdx++;
 	}
-	//std::cout << title << std::endl;
+	std::cout << title << std::endl;
 	strIdx++;
 	//std::cout<<std::endl;
 	
@@ -119,7 +119,7 @@ void write_cpp(const char* s)
 			
 			int tempDur = std::stoi(stdDuration);
 			intDur*=2;
-			std::cout << intDur << std::endl;
+			//std::cout << intDur << std::endl;
 			if(intDur <= tempDur)
 				convertedDuration = "dF";
 			else if(intDur == tempDur*2)
@@ -178,7 +178,6 @@ void write_cpp(const char* s)
 // ===========================================================================   
 
 int main( int arc, char *argv[] ){	
-	
 	using namespace std;
 	
 	ifstream string_file;
@@ -190,5 +189,4 @@ int main( int arc, char *argv[] ){
 	write_cpp(rtttl_string.c_str());
 	
 	return 0;
-
 }

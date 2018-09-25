@@ -145,7 +145,7 @@ public:
     
 	const int duration;
 	
-   static const int dF = 1'000'000;  // full measure
+   static const int dF = 1000000;  // full measure
    static const int dH = dF / 2;     // half measure
    static const int dQ = dF / 4;     // quarter measure
    static const int dQH = dQ / 2;	// Half quarter measure

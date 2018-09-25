@@ -1,0 +1,69 @@
+   .cpu cortex-m0
+   .text
+   .align 1
+   .global print_asciz
+   .global application
+   .global convert_char
+
+string: 
+	.asciz "Hello world, the ANSWER is 42!\n"
+
+application:
+	push { lr }
+	ldr r0, =string
+	bl print_asciz
+	pop { pc }
+
+print_asciz:
+   push { r5, lr }
+   mov  r5, r0
+   
+loop: 
+   ldrb r0, [ r5 ]
+   add  r0, r0, #0
+   beq  done
+   bl   uart_put_char
+   add  r5, r5, #1
+   b    loop
+   
+done: 
+   pop  { r5, pc }
+
+	
+	
+convert_char:
+	push { lr }
+	mov r1, r0										zet H[72] in r1						zet e[101] in r1
+	sub r1, r1, #'A' 		r1 =  r1 - 'A'			72 - 65 = 7 						101 - 65 = 36
+	blt else				r1 <  ( r1 - 'A')		72 < 7  --> false					101 < 36 --> false
+	sub r1, r1, #32			r1 =  r1 - 32 			7 - 32 = -19 --> 237 (signed)		36 - 32 = 4
+	ble to_lowercase		r1 <=  (r1 - 32 )		72 <= 237 --> true					36 <= 4 --> false
+	bgt else				else					X									36 > 4 --> true
+	
+
+
+
+
+else:
+	mov r1, r0 										X									zet e[101] in r1
+	sub r1, r1, #'a' 		r1 = r1 - 'a'  			X									101 - 97 = 4	
+	blt return_c			r1 < ( r1 - 'a' )		X									101 < 4 --> false
+	sub r1, r1, #32			r1 = r1 - 32			X									4 - 32 = -28 --> 228 (signed)
+	ble to_uppercase		r1 <= (r1 - 32)			X									4 <= 228 --> true
+	bgt return_c			(jump bij karakters)	X									X
+
+
+
+
+to_lowercase:
+	sub r0, r0, #'A'		Haal de waarde van 'A' van r0 af 	H[72] - 65 =   7
+	add r0, r0, #'a'  		Voeg de waarde van 'a' bij r0		   7  + 97 = 104 = h
+	b return_c 				return de nieuwe waarde
+
+to_uppercase:   
+	sub r0, r0, #'a'		Haal de waarde van 'a' van r0 af	e[101] - 97 = 4
+	add r0, r0, #'A' 		Voeg de waarde van 'A' bij r0		    4  + 65 = 69 = E
+	b return_c
+
+return_c:
+	pop { pc }				return de character
