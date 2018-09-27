@@ -8,7 +8,7 @@
 string: 
 	.asciz " !\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~ " 
 
-	
+   .align 1	
 
 application:
 	push { lr }

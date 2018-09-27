@@ -1,0 +1,1 @@
+./Debug/main.cpp.o ./Debug/converter.cpp.o ./Debug/note_player.cpp.o   

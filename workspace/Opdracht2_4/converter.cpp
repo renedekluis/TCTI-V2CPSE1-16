@@ -176,23 +176,3 @@ void write_cpp(const char* s)
 }
 
 
-
-// ===========================================================================
-//
-// main: play an rtttl string
-//
-// ===========================================================================   
-
-int main( int arc, char *argv[] ){	
-	
-	using namespace std;
-	
-	ifstream string_file;
-	string_file.open(argv[1]);
-	string rtttl_string;
-	getline(string_file, rtttl_string);
-	
-	string_file.close();
-	write_cpp(rtttl_string.c_str());
-
-}

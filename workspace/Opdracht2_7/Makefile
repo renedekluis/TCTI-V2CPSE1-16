@@ -19,7 +19,7 @@ include $(RELATIVE)Makefile.due
 build : melody.cpp
 
 melody.cpp: Makefile converter.exe
-	converter.exe "Computer Games - Super Mario Brothers 1.txt"
+	converter.exe "Allstars - Best Friends.txt"
 	
 
 converter.exe : converter.cpp
