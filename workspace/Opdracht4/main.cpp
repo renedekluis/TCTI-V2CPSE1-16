@@ -95,48 +95,76 @@ int main( void ){
 	
 	drawClock(sinusses, cosses, oled);
 	
-	int secondCnt = 50;
+	int secondCnt = 59;
 	int minuteCnt = 59;
 	int hourCnt = 11;
 	
-	hwlib::location hourEnd = {30+(uint_fast16_t)cosses.get( hourCnt*12 )-6,(uint_fast16_t)sinusses.get( hourCnt*12 )-6};
-	hwlib::location minEnd = {30+(uint_fast16_t)cosses.get( minuteCnt*6 )-3,(uint_fast16_t)sinusses.get( minuteCnt*6 )-3};;
+	hwlib::location hourEnd = {30+(uint_fast16_t)cosses.get( hourCnt*30 ),(uint_fast16_t)sinusses.get( hourCnt*30 )};
+	hwlib::location minEnd = {30+(uint_fast16_t)cosses.get( minuteCnt*6 ),(uint_fast16_t)sinusses.get( minuteCnt*6 )};;
 	hwlib::location secondEnd = {30+(uint_fast16_t)cosses.get( secondCnt*6 ),(uint_fast16_t)sinusses.get( secondCnt*6 )};
 	
-	
+	auto MinuteButton 	= hwlib::target::pin_in(hwlib::target::pins::d5); //Button
+	auto HourButton 	= hwlib::target::pin_in(hwlib::target::pins::d6); //Button
 	auto oldTime = hwlib::now_us();
 	auto currTime = oldTime;
 	
+	bool update = false;
+	
 	while(true){
+		
+		if(!MinuteButton.get())
+		{
+			minuteCnt++;
+			update  = true;
+		}
+		if(!HourButton.get())
+		{
+			hourCnt++;
+			update  = true;
+		}
 		currTime = hwlib::now_us();
 		
-		hwlib::cout << hourCnt<<":"<<minuteCnt<<":"<< secondCnt<<"\n";
+		
 
-		if(currTime - oldTime > 1000000)
+		if(currTime - oldTime > 1000000 || update)
 		{
 			drawLine(oled, secondEnd, hwlib::white);
 			secondCnt++;
-		
-		
-
-			if(secondCnt >= 59)
+			
+			if(secondCnt > 59)
 			{
 				drawLine(oled, minEnd, hwlib::white);
 				minuteCnt++;
 				secondCnt = 0;
-				if(minuteCnt >= 59)
-				{
-					minuteCnt = 0;
-					drawLine(oled, hourEnd, hwlib::white);
-					hourCnt++;
-					if(hourCnt >= 11)
-					{
-						hourCnt=0;
-					}
-					hourEnd = {30+(uint_fast16_t)cosses.get( hourCnt*12 )-6,(uint_fast16_t)sinusses.get( hourCnt*12 )-6};
-				}
-				minEnd = {30+(uint_fast16_t)cosses.get( minuteCnt*6 )-3,(uint_fast16_t)sinusses.get( minuteCnt*6 )-3};
 			}
+			if(minuteCnt > 59)
+			{
+				minuteCnt = 0;
+				drawLine(oled, hourEnd, hwlib::white);
+				hourCnt++;
+			}
+			if(hourCnt > 11)
+			{
+				hourCnt=0;
+			}
+			
+			hwlib::cout << hourCnt<<":"<<minuteCnt<<":"<< secondCnt<<"\n";
+			if(minuteCnt<60 || update)
+			{
+				drawLine(oled, minEnd, hwlib::white);
+				minEnd = {30+(uint_fast16_t)cosses.get( minuteCnt*6 ),(uint_fast16_t)sinusses.get( minuteCnt*6 )};
+				
+			}
+			if(hourCnt<12 || update)
+			{
+				drawLine(oled, hourEnd, hwlib::white);
+				hourEnd = {30+(uint_fast16_t)cosses.get( hourCnt*30 ),(uint_fast16_t)sinusses.get( hourCnt*30 )};
+				
+			}
+					//hourEnd = {30+(uint_fast16_t)cosses.get( hourCnt*12 )-6,(uint_fast16_t)sinusses.get( hourCnt*12 )-6};
+				
+				//minEnd = {30+(uint_fast16_t)cosses.get( minuteCnt*6 )-3,(uint_fast16_t)sinusses.get( minuteCnt*6 )-3};
+			
 		
 		
 			secondEnd = {30+(uint_fast16_t)cosses.get( secondCnt*6 ),(uint_fast16_t)sinusses.get( secondCnt*6 )};
@@ -146,6 +174,7 @@ int main( void ){
 			drawLine(oled, hourEnd);
 			drawClock(sinusses, cosses, oled);
 			oldTime = currTime;
+			if(update)update=!update;
 		}
 		
 		
