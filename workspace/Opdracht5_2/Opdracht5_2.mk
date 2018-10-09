@@ -3,10 +3,10 @@
 ## any manual changes will be erased      
 ##
 ## Debug
-ProjectName            :=Opdracht2_4
+ProjectName            :=Opdracht5_2
 ConfigurationName      :=Debug
 WorkspacePath          :=D:/Documents_D/HBO-ICT/git/HBO-ICT/Jaar4/C_Herkansing/TCTI-V2CPSE1-16/workspace
-ProjectPath            :=D:/Documents_D/HBO-ICT/git/HBO-ICT/Jaar4/C_Herkansing/TCTI-V2CPSE1-16/workspace/Opdracht2_4
+ProjectPath            :=D:/Documents_D/HBO-ICT/git/HBO-ICT/Jaar4/C_Herkansing/TCTI-V2CPSE1-16/workspace/Opdracht5_2
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
@@ -32,13 +32,13 @@ Preprocessors          :=
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E
-ObjectsFileList        :="Opdracht2_4.txt"
+ObjectsFileList        :="Opdracht5_2.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=makedir
 RcCmpOptions           := 
 RcCompilerName         :=C:/TDM-GCC-32/bin/windres.exe
 LinkOptions            :=  -lgdi32 -static-libgcc -static-libstdc++ 
-IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). $(IncludeSwitch)../Catch/include 
+IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). $(IncludeSwitch)../Catch/include $(IncludeSwitch)../w1-library 
 IncludePCH             := 
 RcIncludePath          := 
 Libs                   := 
@@ -62,7 +62,7 @@ AS       := C:/TDM-GCC-32/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=D:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/converter.cpp$(ObjectSuffix) $(IntermediateDirectory)/note_player.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
 
 
 
@@ -94,28 +94,12 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "D:/Documents_D/HBO-ICT/git/HBO-ICT/Jaar4/C_Herkansing/TCTI-V2CPSE1-16/workspace/Opdracht2_4/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "D:/Documents_D/HBO-ICT/git/HBO-ICT/Jaar4/C_Herkansing/TCTI-V2CPSE1-16/workspace/Opdracht5_2/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM main.cpp
 
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
-
-$(IntermediateDirectory)/converter.cpp$(ObjectSuffix): converter.cpp $(IntermediateDirectory)/converter.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "D:/Documents_D/HBO-ICT/git/HBO-ICT/Jaar4/C_Herkansing/TCTI-V2CPSE1-16/workspace/Opdracht2_4/converter.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/converter.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/converter.cpp$(DependSuffix): converter.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/converter.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/converter.cpp$(DependSuffix) -MM converter.cpp
-
-$(IntermediateDirectory)/converter.cpp$(PreprocessSuffix): converter.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/converter.cpp$(PreprocessSuffix) converter.cpp
-
-$(IntermediateDirectory)/note_player.cpp$(ObjectSuffix): note_player.cpp $(IntermediateDirectory)/note_player.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "D:/Documents_D/HBO-ICT/git/HBO-ICT/Jaar4/C_Herkansing/TCTI-V2CPSE1-16/workspace/Opdracht2_4/note_player.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/note_player.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/note_player.cpp$(DependSuffix): note_player.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/note_player.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/note_player.cpp$(DependSuffix) -MM note_player.cpp
-
-$(IntermediateDirectory)/note_player.cpp$(PreprocessSuffix): note_player.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/note_player.cpp$(PreprocessSuffix) note_player.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
