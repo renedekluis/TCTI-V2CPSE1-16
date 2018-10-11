@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeLite_Project Name="Opdracht5_1_LZ_compressor" InternalType="Console">
+<CodeLite_Project Name="Test_main_to_main_calling" InternalType="Console">
   <Plugins>
     <Plugin Name="qmake">
       <![CDATA[00010001N0005Debug000000000000]]>
@@ -21,6 +21,10 @@
   <Dependencies/>
   <VirtualDirectory Name="src">
     <File Name="main.cpp"/>
+    <File Name="app_main.cpp"/>
+    <File Name="app_main.hpp"/>
+    <File Name="match.hpp"/>
+    <File Name="secondMain.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

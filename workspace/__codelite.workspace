@@ -36,10 +36,40 @@
       <Project Name="Opdracht3" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
-  <Project Name="Opdracht4" Path="Opdracht4/_codelite.project" Active="Yes"/>
+  <Project Name="Opdracht4" Path="Opdracht4/_codelite.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="Opdracht4" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+  <Project Name="Opdracht5_1_LZ_compressor" Path="Opdracht5_1_LZ_compressor/_codelite.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Opdracht5_1_LZ_compressor" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+  <Project Name="Opdracht5_2" Path="Opdracht5_2/_codelite.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Opdracht5_2" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+  <Project Name="Opdracht5_3" Path="Opdracht5_3/_codelite.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Opdracht5_3" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+  <Project Name="Opdracht5_4" Path="Opdracht5_4/_codelite.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Opdracht5_4" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+  <Project Name="Test_main_to_main_calling" Path="Test_main_to_main_calling/_codelite.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="Test_main_to_main_calling" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
   <Project Name="w1-demo" Path="w1-demo/_codelite.project" Active="No"/>

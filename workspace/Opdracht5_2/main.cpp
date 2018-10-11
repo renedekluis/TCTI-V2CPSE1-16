@@ -50,7 +50,7 @@
 		}
 		else if(ch == '\n')
 		{
-			f2 	<< "\"\n"
+			f2 	<< " \"\n"
 				<< "\t.ascii \"";
 		}
 		else
@@ -100,15 +100,6 @@ int main( void ){
 		return -1;      
 	}   
 	
-	
-	
-	/*
-	lz_decompressor decompressor;
-	decompressor.decompress( 
-		[ &f1 ]()-> int { auto c = f1.get(); return f1.eof() ? '\0' : c; },
-		[ ]( char c ){ std::cout << c; }
-	);
-	*/
 	f1.close();
 	
 	
