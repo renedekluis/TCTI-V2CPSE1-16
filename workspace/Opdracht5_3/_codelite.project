@@ -30,8 +30,9 @@
   <Dependencies/>
   <VirtualDirectory Name="source">
     <File Name="main.cpp"/>
-    <File Name="decompressor2.hpp"/>
     <File Name="Makefile"/>
+    <File Name="compressed.asm"/>
+    <File Name="decompressor.asm"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

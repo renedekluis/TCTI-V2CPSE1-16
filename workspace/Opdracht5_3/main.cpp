@@ -15,17 +15,10 @@ extern "C" void uart_put_char( char c ){
 	hwlib::cout << c;
 }
 
-extern "C" void debug( char c ){
-	hwlib::cout << "[" << c << "]" ;
-}
-extern "C" void print_asciz( const char * s );
-
-extern "C" void decompress();
-
-extern "C" void decompressor();
 
 
-//extern "C" void speeltuin_decompress();
+
+extern "C" void make_string();
 
 
 int main( void ){	
@@ -35,12 +28,9 @@ int main( void ){
    
    namespace target = hwlib::target;   
     
-      // wait for the PC console to start
+	// wait for the PC console to start
 	hwlib::wait_ms( 500 );
-	decompressor();
-	hwlib::cout<<"\n\n\n";
-	decompress();
-	//speeltuin_decompress();
+	make_string();
 	
 	hwlib::cout <<"\n\nend of program";
 }
