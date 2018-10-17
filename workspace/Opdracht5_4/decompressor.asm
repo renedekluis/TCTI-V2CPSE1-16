@@ -16,28 +16,26 @@ compressed_item:
 	mov r7, r0				// Store de size in r7
 	
 	sub r6, r6, #'0'		// Haal '0' van de offset af om de waarde te krijgen
-	add r6, r6, #1
 	sub r7, r7, #'0'		// Haal '0' van de size af om de waarde te krijgen
 	
 	ldr r2, =mybuffer
-	add r3, r2, r6
-	sub r3, r3, #1
+	add r3, r2, r6			// zet r3 naar het begin van de buffer + de offset
 	
 loop2:
-	cmp r7, #0
+	cmp r7, #0				// Als lengte 0 is, break
 	beq decompress_done
 	
-	ldrb r0, [r3]
-	bl move_buffer
-	ldr r2, =mybuffer
-	strb r0, [r2]
+	ldrb r0, [r3]			// Haal het r3e waarde uit de buffer en stop in r0
+	bl move_buffer			// Verschuif alle waarden in de buffer
+	ldr r2, =mybuffer		// Laad het begin van de buffer opnieuw, want r2 is weg door bl commando
+	strb r0, [r2]			// Store de waarde r0 in het begin van de buffer
 	bl uart_put_char
-	sub r7, r7, #1
+	sub r7, r7, #1			// Haal 1 van de lengte af
 	b loop2
 	
 	
 decompress_done:
-	add r5, r5, #1
+	add r5, r5, #1			// Tel 1 bij de waarde op, zodat de '@'  overgeslagen wordt.
 	b filling
 
 
@@ -55,6 +53,8 @@ mybuffer:
 	.text					// Ga weer terug naar .text stuk, om code te schrijven
 	.align 1				// Align de string? (vergeten wat dit precies deed)
 
+
+
 make_string:				// Functie call voor lezen van een string naar storage en vanaf de storage weer uitprinten
 	push { r5, lr }
 	ldr r0, =string  		// string is de input
@@ -71,6 +71,8 @@ filling:
 	add  r5, r5, #1			// Verhoog de index pointer van de string
 	bl uart_put_char
 	b    filling			// Loop
+
+
 
 
 
